@@ -14,7 +14,9 @@ class DefaultController extends FOSRestController
      */
     public function indexAction(Request $request)
     {
-        $data = null;
+        $data = [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
+        ];
         $view = $this->view($data, 200)
             ->setTemplate('default/index.html.twig');
         // replace this example code with whatever you need
@@ -27,11 +29,12 @@ class DefaultController extends FOSRestController
     public function pingAction(Request $request)
     {
         $data = [
-            'status' => 'success'
+            'message' => 'success'
         ];
 
         $view = $this->view($data, 200)
-            ->setTemplate('default/json.html.twig');
+            ->setTemplate('default/json.html.twig')
+            ->setTemplateVar('other');
         // replace this example code with whatever you need
         return $this->handleView($view);
     }
