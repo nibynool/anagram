@@ -3,14 +3,22 @@
 namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends FOSRestController
 {
     /**
-     * @Route("/", name="default")
+     * Default Symfony page to verify successful installation
+     *
+     * @Route("/", name="default", methods={ "GET" })
+     *
+     * @param Request $request
+     *
+     * @todo Delete this function and associated tests before finalising for production deployment
+     *
+     * @return Response
      */
     public function indexAction(Request $request)
     {
@@ -19,23 +27,31 @@ class DefaultController extends FOSRestController
         ];
         $view = $this->view($data, 200)
             ->setTemplate('default/index.html.twig');
-        // replace this example code with whatever you need
+
         return $this->handleView($view);
     }
 
     /**
-     * @Route("/ping", name="ping", methods={"GET"})
+     * Ping end-point
+     *
+     * @Route("/ping", name="ping", methods={ "GET" })
+     *
+     * @param Request $request
+     *
+     * @todo Add functionality to verify all required services are up and running
+     *
+     * @return Response
      */
     public function pingAction(Request $request)
     {
         $data = [
+            'code' => 200,
             'message' => 'success'
         ];
 
         $view = $this->view($data, 200)
-            ->setTemplate('default/json.html.twig')
-            ->setTemplateVar('other');
-        // replace this example code with whatever you need
+            ->setTemplate('default/json.html.twig');
+
         return $this->handleView($view);
     }
 }

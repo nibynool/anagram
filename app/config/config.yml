@@ -84,10 +84,13 @@ fos_rest:
         rules:
         - { path: '^/', priorities: ['json', 'xml', 'html'], fallback_format: 'html' }
     exception:
+        enabled: true
         codes:
+            'Symfony\Component\HttpKernel\Exception\BadRequestHttpException': 400
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
             'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
         messages:
+            'Symfony\Component\HttpKernel\Exception\BadRequestHttpException': true
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
     versioning: true
     view:

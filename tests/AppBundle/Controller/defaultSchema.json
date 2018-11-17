@@ -1,7 +1,8 @@
 {
   "type": "object",
   "required": [
-    "message"
+    "message",
+    "code"
   ],
   "properties": {
     "message": {

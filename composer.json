@@ -38,7 +38,8 @@
     "require-dev": {
         "justinrainbow/json-schema": "^5.2",
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "symfony/stopwatch": "^4.1"
     },
     "scripts": {
         "symfony-scripts": [

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "message",
+    "code"
+  ],
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "code": {
+      "type": "integer"
+    },
+    "input": {
+      "type": "string"
+    },
+    "invalid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "valid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
